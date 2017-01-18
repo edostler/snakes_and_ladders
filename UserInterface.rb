@@ -1,4 +1,4 @@
-require_relative "./ascii"
+require_relative "./Ascii"
 
 class UserInterface
   def initialize(test_mode = false)
@@ -7,8 +7,11 @@ class UserInterface
 
   def start_turn(player)
     if !@test_mode
-      puts "#{player.name} is up! Press return to roll:"
-      gets.chomp
+      puts "#{player.name} is up! Press return to roll (press 'q' to quit):"
+      input = gets.chomp
+      if input.downcase == 'q'
+        exit
+      end
     end
   end
 
