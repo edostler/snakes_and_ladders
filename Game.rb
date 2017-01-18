@@ -20,12 +20,12 @@ class Game
 
   def start
     while !@won
-      advance()
+      advance
     end
   end
 
   def advance
-    player = get_next_player()
+    player = get_next_player
     
     @ui.start_turn(player)
 
@@ -40,7 +40,7 @@ class Game
     # Check if player has landed on a snake / ladder
     check_modifier(player)
 
-    @ui.separator()
+    @ui.separator
 
     # Check to see if anyone has won
     check_win(player)
@@ -56,7 +56,7 @@ class Game
     end
 
     # only used for tests
-    return modifier
+    modifier
   end
 
   def check_win(player)
@@ -68,11 +68,11 @@ class Game
     end
 
     # again - for tests
-    return @won
+    @won
   end
 
   def get_next_player
-    return @players[@next_player_to_move]
+    @players[@next_player_to_move]
   end
 
 end
