@@ -4,7 +4,6 @@ require "minitest/rg"
 require_relative "../Dice"
 
 class TestDice < Minitest::Test
-
   def test_dice
     10.times do 
       rolled = Dice.roll
@@ -12,5 +11,4 @@ class TestDice < Minitest::Test
       assert( index != nil, "Dice roll was out of range 1..6! You rolled #{rolled}" )
     end
   end
-
 end

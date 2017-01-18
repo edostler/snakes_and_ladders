@@ -1,5 +1,5 @@
 class Dice
   def self.roll
-    return Array(1..6).sample
+    rand(6) + 1
   end
 end

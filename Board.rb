@@ -2,7 +2,7 @@ class Board
   attr_reader :spaces
 
   def initialize(modifiers)
-    @spaces = Array.new(50)
+    @spaces = Array.new(51)
 
     modifiers.each do |key, value|
       @spaces[key] = value
@@ -10,6 +10,6 @@ class Board
   end
 
   def get_modifier_for_space(space)
-    return @spaces[space]
+    @spaces[space]
   end
 end

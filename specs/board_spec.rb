@@ -23,7 +23,7 @@ class TestBoard < Minitest::Test
   end
 
   def test_board_has_spaces
-    assert_equal(50, @board.spaces.length)
+    assert_equal(51, @board.spaces.length)
   end
 
   def test_board_modifiers
@@ -31,5 +31,4 @@ class TestBoard < Minitest::Test
     assert_equal(-3, @board.get_modifier_for_space(42))
     assert_equal(-18, @board.get_modifier_for_space(25))
   end
-
 end

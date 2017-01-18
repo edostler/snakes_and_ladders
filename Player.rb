@@ -5,12 +5,12 @@ class Player
     @celebrations = [
       "In your face!",
       "Loooooser!",
-      "I AM THE VICTOR",
-      "Let's play for money next time..."
+      "I AM THE VICTOR!",
+      "Let's play for money next time...?"
     ]
   end
 
   def celebrate
-    return @celebrations.sample
+    @celebrations.sample
   end
 end
