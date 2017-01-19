@@ -3,6 +3,7 @@ require_relative "./Game"
 require_relative "./Dice"
 require_relative "./Board"
 require_relative "./Ascii"
+require_relative "./UserInterface"
 
 puts Ascii.get_title
 
@@ -16,8 +17,8 @@ p2name = gets.chomp
 
 puts
 
-@player1 = Player.new(p1name)
-@player2 = Player.new(p2name)
+player1 = Player.new(p1name)
+player2 = Player.new(p2name)
 
 modifiers = {
   5 => 10,
@@ -33,7 +34,8 @@ modifiers = {
   48 => -47
 }
 
-@board = Board.new(modifiers)
+board = Board.new(modifiers)
+ui = UserInterface.new
 
-@game = Game.new(@board, [@player1, @player2])
-@game.start
+game = Game.new(board, [player1, player2], ui)
+game.start

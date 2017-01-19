@@ -1,17 +1,16 @@
 require_relative "./Dice"
-require_relative "./UserInterface"
 
 class Game
   attr_reader :board, :players, :next_player_to_move, :won
   attr_accessor :player_positions
 
-  def initialize(board, players, test_mode=false)
+  def initialize(board, players, ui)
     @board = board
     @players = players
     @player_positions = {}
     @next_player_to_move = 0
     @won = false
-    @ui = UserInterface.new(test_mode)
+    @ui = ui
 
     players.each do |player|
       @player_positions[player] = 1

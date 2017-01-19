@@ -5,6 +5,7 @@ require_relative "../Board"
 require_relative "../Dice"
 require_relative "../Game"
 require_relative "../Player"
+require_relative "../UserInterface"
 
 class TestGame < Minitest::Test
   def setup
@@ -27,7 +28,9 @@ class TestGame < Minitest::Test
 
     @board = Board.new(modifiers)
 
-    @game = Game.new(@board, [@player1, @player2], true)
+    @ui = UserInterface.new(true)
+
+    @game = Game.new(@board, [@player1, @player2], @ui)
   end
 
   def test_game_board
