@@ -39,7 +39,7 @@ class Game
     # Check if player has landed on a snake / ladder
     check_modifier(player)
 
-    @ui.separator
+    @ui.end_turn
 
     # Check to see if anyone has won
     check_win(player)
@@ -63,6 +63,7 @@ class Game
       @won = true
       @ui.game_over(player)
     else
+      # TODO refactor to use Array.rotate
       @next_player_to_move = @next_player_to_move == (@players.length - 1) ? 0 : (@next_player_to_move + 1)
     end
 

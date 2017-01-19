@@ -27,7 +27,7 @@ class UserInterface
     puts "#{player.name} has hit a #{modifier_type} and is now on position #{new_position}!" if !@test_mode
   end
 
-  def separator
+  def end_turn
     if !@test_mode
       puts
       puts "===================="
