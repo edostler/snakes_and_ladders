@@ -8,7 +8,6 @@ class Game
     @board = board
     @players = players
     @player_positions = {}
-    # @next_player_to_move = 0
     @won = false
     @ui = ui
 
