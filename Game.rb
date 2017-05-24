@@ -8,7 +8,7 @@ class Game
     @board = board
     @players = players
     @player_positions = {}
-    @next_player_to_move = 0
+    # @next_player_to_move = 0
     @won = false
     @ui = ui
 
@@ -24,7 +24,7 @@ class Game
   end
 
   def advance
-    player = get_next_player
+    player = @players.first
     
     @ui.start_turn(player)
 
@@ -63,16 +63,11 @@ class Game
       @won = true
       @ui.game_over(player)
     else
-      # TODO refactor to use Array.rotate
-      @next_player_to_move = @next_player_to_move == (@players.length - 1) ? 0 : (@next_player_to_move + 1)
+      @players.rotate!
     end
 
     # again - for tests
     @won
-  end
-
-  def get_next_player
-    @players[@next_player_to_move]
   end
 
 end

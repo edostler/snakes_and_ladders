@@ -42,13 +42,13 @@ class TestGame < Minitest::Test
   end
 
   def test_get_next_player
-    assert_equal(@player1, @game.get_next_player())
+    assert_equal(@player1, @game.players.first)
     @game.advance
-    assert_equal(@player2, @game.get_next_player())
+    assert_equal(@player2, @game.players.first)
     
     # Check that it loops back to @player1
     @game.advance
-    assert_equal(@player1, @game.get_next_player())
+    assert_equal(@player1, @game.players.first)
   end
 
   def test_check_modifier
