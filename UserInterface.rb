@@ -38,9 +38,10 @@ class UserInterface
     puts "#{player.name} moves to position #{player.position}" if !@test_mode
   end
 
-  def put_modifier(player, modifier_type, new_position)
+  def put_modifier(player, modifier)
     return if @test_mode
-    puts "#{player.name} has hit a #{modifier_type} and is now on position #{new_position}!"
+    modifier_type = modifier < 0 ? "snake" : "ladder"
+    puts "#{player.name} has hit a #{modifier_type} and is now on position #{player.position}!"
   end
 
   def end_turn

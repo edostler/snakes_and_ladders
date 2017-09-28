@@ -44,8 +44,7 @@ class Game
 
     if modifier != nil
       player.position += modifier
-      modifier_type = modifier < 0 ? "snake" : "ladder"
-      @ui.put_modifier(player, modifier_type, player.position)
+      @ui.put_modifier(player, modifier)
     end
   end
 
