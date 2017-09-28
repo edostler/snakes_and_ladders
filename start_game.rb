@@ -5,20 +5,12 @@ require_relative "./Board"
 require_relative "./Ascii"
 require_relative "./UserInterface"
 
-puts Ascii.get_title
+ui = UserInterface.new
 
-puts "Enter the first player's name:"
-p1name = gets.chomp
+ui.show_title()
 
-puts
-
-puts "Enter the second player's name:"
-p2name = gets.chomp
-
-puts
-
-player1 = Player.new(p1name)
-player2 = Player.new(p2name)
+player1 = Player.new(ui.get_player_name(1))
+player2 = Player.new(ui.get_player_name(2))
 
 modifiers = {
   5 => 10,
@@ -35,7 +27,6 @@ modifiers = {
 }
 
 board = Board.new(modifiers)
-ui = UserInterface.new
 
 game = Game.new(board, [player1, player2], ui)
 game.start

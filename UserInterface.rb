@@ -5,6 +5,10 @@ class UserInterface
     @test_mode = test_mode
   end
 
+  def show_title()
+    puts Ascii.get_title()
+  end
+
   def start_turn(player)
     if !@test_mode
       puts "#{player.name} is up! Press return to roll (press 'q' to quit):"
@@ -13,6 +17,14 @@ class UserInterface
         exit
       end
     end
+  end
+
+  def get_player_name(i)
+    puts "Enter player #{i}'s name:"
+    name = gets.chomp
+
+    puts
+    return name
   end
 
   def roll_dice(player, move)
