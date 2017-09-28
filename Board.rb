@@ -4,8 +4,8 @@ class Board
   def initialize(modifiers)
     @spaces = Array.new(51)
 
-    modifiers.each do |key, value|
-      @spaces[key] = value
+    for key in modifiers.keys()
+      @spaces[key] = modifiers[key]
     end
   end
 

@@ -11,7 +11,7 @@ class Game
     @won = false
     @ui = ui
 
-    players.each do |player|
+    for player in players
       @player_positions[player] = 1
     end
   end
@@ -62,5 +62,5 @@ class Game
       @players.rotate!
     end
   end
-  
+
 end
