@@ -52,9 +52,6 @@ class Game
       modifier_type = modifier < 0 ? "snake" : "ladder"
       @ui.put_modifier(player, modifier_type, @player_positions[player])
     end
-
-    # only used for tests
-    return modifier
   end
 
   def check_win(player)
@@ -64,9 +61,6 @@ class Game
     else
       @players.rotate!
     end
-
-    # again - for tests
-    @won
   end
-
+  
 end

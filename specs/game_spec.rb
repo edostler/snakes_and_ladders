@@ -45,7 +45,7 @@ class TestGame < Minitest::Test
     assert_equal(@player1, @game.players.first)
     @game.advance
     assert_equal(@player2, @game.players.first)
-    
+
     # Check that it loops back to @player1
     @game.advance
     assert_equal(@player1, @game.players.first)
@@ -54,12 +54,14 @@ class TestGame < Minitest::Test
   def test_check_modifier
     # We're going to manipulate the player_positions property directly :-/
     @game.player_positions[@player1] = 34
-    assert_equal(-11, @game.check_modifier(@player1))
+    @game.check_modifier(@player1)
+    assert_equal(23, @game.player_positions[@player1])
   end
 
   def test_game_ends_on_last_square
     @game.player_positions[@player1] = 50
-    assert_equal(true, @game.check_win(@player1))
+    @game.check_win(@player1)
+    assert_equal(true, @game.won)
   end
 
   def test_game_does_finish
