@@ -31,8 +31,8 @@ class UserInterface
     puts "#{player.name} rolls a #{move}" if !@test_mode
   end
 
-  def player_move(player, new_position)
-    puts "#{player.name} moves to position #{new_position}" if !@test_mode
+  def show_player_move(player)
+    puts "#{player.name} moves to position #{player.position}" if !@test_mode
   end
 
   def put_modifier(player, modifier_type, new_position)

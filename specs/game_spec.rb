@@ -53,13 +53,13 @@ class TestGame < Minitest::Test
 
   def test_check_modifier
     # We're going to manipulate the player_positions property directly :-/
-    @game.player_positions[@player1] = 34
+    @player1.position = 34
     @game.check_modifier(@player1)
-    assert_equal(23, @game.player_positions[@player1])
+    assert_equal(23, @player1.position)
   end
 
   def test_game_ends_on_last_square
-    @game.player_positions[@player1] = 50
+    @player1.position = 50
     @game.check_win(@player1)
     assert_equal(true, @game.won)
   end

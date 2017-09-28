@@ -7,13 +7,8 @@ class Game
   def initialize(board, players, ui)
     @board = board
     @players = players
-    @player_positions = {}
     @won = false
     @ui = ui
-
-    for player in players
-      @player_positions[player] = 1
-    end
   end
 
   def start
@@ -32,8 +27,8 @@ class Game
     @ui.roll_dice(player, move)
 
     # Move Player
-    @player_positions[player] += move
-    @ui.player_move(player, @player_positions[player])
+    player.position += move
+    @ui.show_player_move(player)
 
     # Check if player has landed on a snake / ladder
     check_modifier(player)
@@ -45,17 +40,17 @@ class Game
   end
 
   def check_modifier(player)
-    modifier = @board.get_modifier_for_space(@player_positions[player])
+    modifier = @board.get_modifier_for_space(player.position)
 
     if modifier != nil
-      @player_positions[player] += modifier
+      player.position += modifier
       modifier_type = modifier < 0 ? "snake" : "ladder"
-      @ui.put_modifier(player, modifier_type, @player_positions[player])
+      @ui.put_modifier(player, modifier_type, player.position)
     end
   end
 
   def check_win(player)
-    if @player_positions[player] >= @board.spaces.length - 1
+    if player.position >= @board.spaces.length - 1
       @won = true
       @ui.game_over(player)
     else
