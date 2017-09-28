@@ -1,7 +1,7 @@
 require_relative "./Dice"
 
 class Game
-  attr_reader :board, :players, :next_player_to_move, :won
+  attr_reader :board, :players, :won
   attr_accessor :player_positions
 
   def initialize(board, players, ui)
@@ -18,17 +18,17 @@ class Game
 
   def start
     while !@won
-      advance
+      advance()
     end
   end
 
   def advance
     player = @players.first
-    
+
     @ui.start_turn(player)
 
     # Roll Dice
-    move = Dice.roll
+    move = Dice.roll()
     @ui.roll_dice(player, move)
 
     # Move Player
@@ -54,7 +54,7 @@ class Game
     end
 
     # only used for tests
-    modifier
+    return modifier
   end
 
   def check_win(player)
