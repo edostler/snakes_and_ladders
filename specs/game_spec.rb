@@ -41,12 +41,18 @@ class TestGame < Minitest::Test
     assert_equal(2, @game.players.length)
   end
 
-  def test_get_next_player
+  def test_player1_is_first_player
     assert_equal(@player1, @game.players.first)
+  end
+
+  def test_get_next_player
     @game.advance
     assert_equal(@player2, @game.players.first)
 
-    # Check that it loops back to @player1
+  end
+
+  def test_next_player_loops
+    @game.advance
     @game.advance
     assert_equal(@player1, @game.players.first)
   end
